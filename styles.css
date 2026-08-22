@@ -252,7 +252,7 @@ h1, h2, h3 {
 .services { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   gap: 1rem;
 }
 .service-card {
