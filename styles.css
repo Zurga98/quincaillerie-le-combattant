@@ -120,11 +120,19 @@ h1, h2, h3 {
   gap: 1.5rem;
   flex-wrap: wrap;
 }
+@media (max-width: 26rem) {
+  .sign-top { flex-direction: column-reverse; align-items: flex-start; }
+}
+.sign-name {
+  min-width: 0;
+}
 .sign-name h1 {
   color: var(--red);
-  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  font-size: clamp(1.5rem, 8vw, 3.4rem);
   line-height: 1.02;
   text-shadow: 2px 2px 0 rgba(28,43,73,0.08);
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 .sign-name h1 span { display: block; }
 .badge {
