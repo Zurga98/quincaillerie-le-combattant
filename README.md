@@ -4,16 +4,19 @@ Site vitrine d'une page pour la **Quincaillerie Le Combattant**, quartier Poola 
 Nkongsamba (Cameroun). Il présente les rayons de la boutique, les horaires
 d'ouverture et les coordonnées. Aucune vente en ligne, aucun formulaire.
 
+Le design reprend les couleurs de l'enseigne physique du magasin (rouge, bleu
+marine, or) avec un bandeau façon panneau d'enseigne en haut de page.
+
 ## Contenu
 
-| Fichier      | Rôle                                                                 |
-| ------------ | -------------------------------------------------------------------- |
-| `index.html` | Structure et contenu de la page                                       |
-| `styles.css` | Mise en forme, palette (thème clair et sombre), typographie           |
-| `script.js`  | Indicateur « ouvert / fermé » calculé sur l'heure du Cameroun         |
+| Fichier      | Rôle                                                        |
+| ------------ | ------------------------------------------------------------ |
+| `index.html` | Structure et contenu de la page                               |
+| `styles.css` | Mise en forme, palette, typographie                           |
+| `script.js`  | Met à jour l'année affichée dans le pied de page              |
 
-Aucune dépendance ni étape de build : les polices *Bevan* et *Archivo* sont
-chargées depuis Google Fonts, le reste est du HTML, CSS et JavaScript natifs.
+Aucune dépendance ni étape de build : les polices *Alfa Slab One* et *Barlow*
+sont chargées depuis Google Fonts, le reste est du HTML, CSS et JavaScript natifs.
 
 ## Lancer en local
 
@@ -33,12 +36,11 @@ branche `main`, dossier `/ (root)`. Le site est ensuite servi à l'adresse
 
 ## Modifier les informations
 
-- **Horaires** : la table dans `index.html` (section « Heures d'ouverture ») **et**
-  l'objet `HORAIRES` en haut de `script.js` doivent rester cohérents.
-- **Téléphones et e-mail** : présents dans l'en-tête, la section contact et le
-  pied de page d'`index.html`. Les liens `tel:` utilisent le format international
-  sans espaces (`tel:+237696053699`).
+- **Horaires** : affichés dans la section « Heures d'ouverture » d'`index.html`.
+- **Téléphones et e-mail** : présents dans l'en-tête, le panneau d'enseigne, la
+  section contact et le pied de page d'`index.html`. Les liens `tel:` utilisent
+  le format international sans espaces (`tel:+237696053699`).
 - **Rayons** : les descriptions d'articles sont indicatives ; adaptez-les à ce que
   la boutique tient réellement en stock.
 - **Couleurs** : toutes définies comme variables CSS en haut de `styles.css`
-  (bloc `:root`, puis les deux blocs du thème sombre).
+  (bloc `:root`).
