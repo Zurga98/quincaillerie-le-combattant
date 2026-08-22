@@ -1,0 +1,484 @@
+/* ==========================================================================
+   Quincaillerie Le Combattant — feuille de style
+   Palette tirée de l'enseigne : rouge peint, charbon, panneau crème, mur ocre.
+   ========================================================================== */
+
+/* --- Jetons : thème clair (par défaut) ---------------------------------- */
+
+:root {
+  --mur: #C9A97A;
+  --mur-ombre: #B08F5F;
+  --sol: #F4F0E8;
+  --panneau: #FAF7F0;
+  --carte: #FFFFFF;
+  --encre: #1C1A17;
+  --encre-2: #5E574C;
+  --ligne: #DCD3C2;
+  --ligne-forte: #C3B79F;
+  --rouge: #B5271D;
+  --rouge-vif: #C8342A;
+  --rouge-texte: #FFF7F2;
+  --ocre: #A87B33;
+  --vert: #2C7A4B;
+  --ombre: 0 18px 40px -18px rgba(40, 28, 12, .45);
+
+  --pas: clamp(1rem, 2.5vw, 1.5rem);
+  --large: 1120px;
+}
+
+/* --- Jetons : thème sombre ---------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --mur: #3B2F21;
+    --mur-ombre: #2A2118;
+    --sol: #15130F;
+    --panneau: #211D17;
+    --carte: #1E1B15;
+    --encre: #F2EDE2;
+    --encre-2: #A99F8D;
+    --ligne: #352F25;
+    --ligne-forte: #4A4234;
+    --rouge: #E85F4C;
+    --rouge-vif: #F2705D;
+    --rouge-texte: #1B120F;
+    --ocre: #D6AC66;
+    --vert: #63C08C;
+    --ombre: 0 18px 40px -18px rgba(0, 0, 0, .7);
+  }
+}
+
+:root[data-theme="dark"] {
+  --mur: #3B2F21;
+  --mur-ombre: #2A2118;
+  --sol: #15130F;
+  --panneau: #211D17;
+  --carte: #1E1B15;
+  --encre: #F2EDE2;
+  --encre-2: #A99F8D;
+  --ligne: #352F25;
+  --ligne-forte: #4A4234;
+  --rouge: #E85F4C;
+  --rouge-vif: #F2705D;
+  --rouge-texte: #1B120F;
+  --ocre: #D6AC66;
+  --vert: #63C08C;
+  --ombre: 0 18px 40px -18px rgba(0, 0, 0, .7);
+}
+
+/* --- Base ---------------------------------------------------------------- */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--sol);
+  color: var(--encre);
+  font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  text-wrap: balance;
+}
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--rouge);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.contenu {
+  width: 100%;
+  max-width: var(--large);
+  margin-inline: auto;
+  padding-inline: var(--pas);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: .74rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--encre-2);
+}
+
+/* --- Le mur et le panneau (en-tête) -------------------------------------- */
+
+.mur {
+  background:
+    radial-gradient(120% 80% at 15% 0%, rgba(255, 255, 255, .16), transparent 60%),
+    radial-gradient(90% 70% at 85% 100%, rgba(0, 0, 0, .18), transparent 65%),
+    var(--mur);
+  border-bottom: 1px solid var(--mur-ombre);
+  padding-block: clamp(2rem, 6vw, 4.5rem) clamp(2.5rem, 7vw, 5rem);
+}
+
+.panneau {
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background: var(--panneau);
+  border: 1px solid var(--ligne-forte);
+  box-shadow: var(--ombre);
+}
+
+.panneau-tete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.nom {
+  margin: 0;
+  font-family: "Bevan", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.1rem, 7vw, 4.1rem);
+  line-height: .96;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  color: var(--rouge);
+}
+
+.nom span { display: block; }
+
+.monogramme {
+  flex: none;
+  font-family: "Bevan", Georgia, serif;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  line-height: 1;
+  letter-spacing: -.06em;
+  color: var(--encre);
+}
+
+.regle {
+  height: 5px;
+  margin: 0;
+  border: 0;
+  background: var(--rouge);
+}
+
+.metiers {
+  max-width: 34ch;
+  margin: 0;
+  font-size: clamp(.95rem, 2vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--encre);
+}
+
+.panneau-pied {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem 2rem;
+}
+
+.lieu {
+  margin: 0;
+  font-size: 1.02rem;
+}
+
+.lieu strong { font-weight: 700; }
+
+/* --- Boutons -------------------------------------------------------------- */
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .7rem 1.15rem;
+  font-size: .95rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--rouge-texte);
+  background: var(--rouge);
+  border: 1.5px solid var(--rouge);
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.bouton:hover {
+  background: var(--rouge-vif);
+  border-color: var(--rouge-vif);
+}
+
+.bouton.secondaire {
+  background: transparent;
+  color: var(--rouge);
+}
+
+.bouton.secondaire:hover {
+  background: color-mix(in srgb, var(--rouge) 10%, transparent);
+}
+
+/* --- Statut ouvert / fermé ----------------------------------------------- */
+
+.statut {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  justify-self: start;
+  margin: 0;
+  padding: .38rem .8rem;
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--encre-2);
+  background: var(--carte);
+  border: 1px solid var(--ligne-forte);
+}
+
+.pastille {
+  flex: none;
+  width: .55rem;
+  height: .55rem;
+  border-radius: 50%;
+  background: var(--encre-2);
+}
+
+.statut[data-ouvert="oui"] {
+  color: var(--vert);
+  border-color: color-mix(in srgb, var(--vert) 45%, transparent);
+}
+
+.statut[data-ouvert="oui"] .pastille { background: var(--vert); }
+
+.statut[data-ouvert="non"] {
+  color: var(--rouge);
+  border-color: color-mix(in srgb, var(--rouge) 45%, transparent);
+}
+
+.statut[data-ouvert="non"] .pastille { background: var(--rouge); }
+
+/* --- Sections ------------------------------------------------------------- */
+
+.section { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+
+.section-tete {
+  display: grid;
+  gap: .4rem;
+  max-width: 60ch;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.titre {
+  font-family: "Bevan", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.55rem, 3.5vw, 2.2rem);
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+.intro {
+  max-width: 62ch;
+  margin: 0;
+  color: var(--encre-2);
+}
+
+/* --- Rayons --------------------------------------------------------------- */
+
+.rayons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 1px;
+  background: var(--ligne);
+  border: 1px solid var(--ligne);
+}
+
+.rayon {
+  display: grid;
+  gap: .5rem;
+  align-content: start;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  background: var(--carte);
+}
+
+.rayon h3 {
+  font-size: 1.16rem;
+  font-weight: 700;
+  letter-spacing: -.005em;
+}
+
+.rayon p {
+  margin: 0;
+  font-size: .96rem;
+  color: var(--encre-2);
+}
+
+.rayon .marque {
+  width: 2.1rem;
+  height: 4px;
+  margin-bottom: .35rem;
+  background: var(--rouge);
+}
+
+.rayon.appel { background: var(--panneau); }
+.rayon.appel .marque { background: var(--ocre); }
+
+/* --- Horaires et contact -------------------------------------------------- */
+
+.duo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.bloc {
+  display: grid;
+  gap: 1.15rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: var(--carte);
+  border: 1px solid var(--ligne);
+}
+
+.horaires {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.horaires th,
+.horaires td {
+  padding: .7rem 0;
+  font-size: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--ligne);
+}
+
+.horaires th {
+  font-weight: 600;
+  color: var(--encre);
+}
+
+.horaires td {
+  text-align: right;
+  font-weight: 500;
+  color: var(--encre-2);
+}
+
+.horaires tr:last-child th,
+.horaires tr:last-child td { border-bottom: 0; }
+
+.horaires tr[data-aujourdhui="oui"] th,
+.horaires tr[data-aujourdhui="oui"] td {
+  font-weight: 700;
+  color: var(--rouge);
+}
+
+.contacts {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+.contact-ligne {
+  display: grid;
+  gap: .1rem;
+}
+
+.contact-ligne dt {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--encre-2);
+}
+
+.contact-ligne dd {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.contact-ligne dd a {
+  padding-bottom: 1px;
+  text-decoration: none;
+  border-bottom: 2px solid color-mix(in srgb, var(--rouge) 35%, transparent);
+}
+
+.contact-ligne dd a:hover {
+  color: var(--rouge);
+  border-bottom-color: var(--rouge);
+}
+
+.tels {
+  display: grid;
+  gap: .3rem;
+  justify-items: start;
+}
+
+.lien-carte {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  align-self: start;
+  padding-bottom: 1px;
+  font-size: .92rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--rouge);
+  border-bottom: 2px solid color-mix(in srgb, var(--rouge) 35%, transparent);
+}
+
+.lien-carte:hover { border-bottom-color: var(--rouge); }
+
+/* --- Pied de page --------------------------------------------------------- */
+
+.pied {
+  padding-block: 2rem;
+  background: var(--panneau);
+  border-top: 1px solid var(--ligne);
+}
+
+.pied-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .5rem 2rem;
+  font-size: .9rem;
+  color: var(--encre-2);
+}
+
+.pied p { margin: 0; }
+
+.pied strong {
+  font-family: "Bevan", Georgia, serif;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: .01em;
+  text-transform: uppercase;
+  color: var(--rouge);
+}
+
+/* --- Accessibilité -------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
