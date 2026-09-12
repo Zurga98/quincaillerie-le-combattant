@@ -185,7 +185,7 @@ h1, h2, h3 {
   color: var(--ink);
 }
 .sign-phones a { text-decoration: none; }
-.sign-phones a:hover { text-decoration: underline; }
+.sign-phones a:not(.wa-icon-link):hover { text-decoration: underline; }
 .sign-phones .sep { color: var(--gold-deep); }
 .sign-location {
   font-family: var(--font-label);
@@ -252,8 +252,11 @@ h1, h2, h3 {
 .services { background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-columns: 1fr;
   gap: 1rem;
+}
+@media (min-width: 34rem) {
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
 }
 .service-card {
   background: #fff;
@@ -275,6 +278,64 @@ h1, h2, h3 {
 }
 .service-card .icon { font-size: 1.2rem; line-height: 1; }
 .service-note { margin-top: 0.5rem; font-size: 0.92rem; color: var(--ink-muted); }
+
+.item-tags {
+  list-style: none;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.item-tags li {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+}
+
+/* ---------- WhatsApp ---------- */
+.wa-icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  flex: none;
+}
+.wa-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  flex: none;
+}
+.wa-icon-link .wa-icon { width: 0.9rem; height: 0.9rem; }
+.wa-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  font-family: var(--font-label);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.wa-link:hover { background: #1fb457; }
+.phone-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
 
 /* ---------- Hours ---------- */
 .hours-card {
@@ -349,19 +410,22 @@ h1, h2, h3 {
   margin: 0.5rem 0 0;
   padding: 0;
   display: grid;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
-.phone-list a {
+.phone-list li {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.6rem;
+}
+.phone-list .tel-link {
   font-family: var(--font-label);
   font-size: 1.12rem;
   font-weight: 600;
   text-decoration: none;
   font-variant-numeric: tabular-nums;
 }
-.phone-list a:hover { text-decoration: underline; }
+.phone-list .tel-link:hover { text-decoration: underline; }
 
 /* ---------- Footer ---------- */
 footer { padding: 1.5rem 0; background: var(--navy); color: #b9c4d8; }
