@@ -403,6 +403,7 @@ footer { padding: 1.5rem 0; background: var(--navy); color: #b9c4d8; }
   font-weight: 600;
   color: var(--gold);
   font-size: 0.95rem;
+  text-align: center;
 }
 .footer-meta {
   display: flex;
