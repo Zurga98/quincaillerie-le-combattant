@@ -381,6 +381,13 @@ h1, h2, h3 {
   font-variant-numeric: tabular-nums;
 }
 .phone-list .tel-link:hover { text-decoration: underline; }
+.tax-id {
+  margin: 0.8rem 0 0;
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: #ffe4b8;
+}
 
 /* ---------- Footer ---------- */
 footer { padding: 1.5rem 0; background: var(--navy); color: #b9c4d8; }
